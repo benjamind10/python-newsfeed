@@ -26,3 +26,6 @@ class User(Base):
         assert "@" in email
 
         return email
+
+    def verify_password(self, password):
+        return bcrypt.checkpw(password.encode("utf-8"), self.password.encode("utf-8"))
